@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+
+  <body>
+    <header>
+      <h1>Perfil do Usuário</h1>
+      <button id="logout-btn">Sair</button>
+    </header>
+
+    <main>
+      <section class="profile-container">
+        <h2>Informações do Perfil</h2>
+        <div id="profile-info">
+          <p><strong>E-mail:</strong> <span id="profile-email"></span></p>
+          <p><strong>Função:</strong> <span id="profile-role"></span></p>
+          <p><strong>Token:</strong></p>
+          <div id="profile-token"></div> <!-- Contêiner para o token -->
+        </div>
+      </section>
+
+      <section class="profile-container">
+        <h2>Minhas Inscrições</h2>
+        <div id="my-activities-list"></div>
+      </section>
+
+      <!-- Botão para ir para a página de atividades -->
+      <button id="go-to-activities-btn">Ver Atividades</button>
+    </main>
+
+    <script src="js/profile.js"></script>
+  </body>
+
+</html>

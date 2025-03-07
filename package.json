@@ -1,0 +1,25 @@
+{
+  "name": "voluntariado",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@salto-io/rocksdb": "^5.1.1-salto-18",
+    "bcryptjs": "^3.0.2",
+    "dot": "^1.1.3",
+    "dotenv": "^16.4.7",
+    "env": "^0.0.2",
+    "express": "^4.21.2",
+    "jwt-simple": "^0.5.6",
+    "leveldown": "^6.1.1",
+    "levelup": "^5.1.1",
+    "rocksdb": "^5.2.1"
+  }
+}

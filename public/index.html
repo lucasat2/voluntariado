@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login e Registro</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+
+  <body>
+    <div class="auth-container">
+      <!-- Formulário de Login -->
+      <div id="login-form-container">
+        <h1>Login</h1>
+        <form id="login-form">
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email" required>
+          <label for="password">Senha:</label>
+          <input type="password" id="password" name="password" required>
+          <button type="submit">Entrar</button>
+        </form>
+        <p>Não tem uma conta? <a href="#" id="show-register">Registre-se</a></p>
+      </div>
+
+      <!-- Formulário de Registro -->
+      <div id="register-form-container">
+        <h1>Registro</h1>
+        <form id="register-form">
+          <label for="reg-email">E-mail:</label>
+          <input type="email" id="reg-email" name="email" required>
+          <label for="reg-password">Senha:</label>
+          <input type="password" id="reg-password" name="password" required>
+          <label for="reg-role">Função:</label>
+          <select id="reg-role" name="role">
+            <option value="user">Usuário Comum</option>
+            <option value="admin">Administrador</option>
+          </select>
+          <button type="submit">Registrar</button>
+        </form>
+        <p>Já tem uma conta? <a href="#" id="show-login">Faça login</a></p>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+
+</html>
