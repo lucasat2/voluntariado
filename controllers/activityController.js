@@ -1,4 +1,3 @@
-//activityController.js
 const db = require('../config/db');
 const { v4: uuidv4 } = require('uuid');
 
@@ -17,20 +16,18 @@ class Activity {
 // Listar todas as atividades
 exports.listActivities = async (req, res) => {
   const activities = [];
+  const iterator = db.iterator();
 
-  // Usando createReadStream para buscar todas as atividades
-  db.createReadStream()
-    .on('data', (data) => {
-      if (data.key.startsWith('activity:')) {
-        activities.push(JSON.parse(data.value));
-      }
-    })
-    .on('end', () => {
-      res.json(activities);
-    })
-    .on('error', (err) => {
-      res.status(500).json({ message: 'Erro ao buscar atividades', error: err });
-    });
+  iterator.seek('activity:');  // Inicia a leitura das atividades
+
+  for await (const [key, value] of iterator) {
+    const keyStr = key.toString(); // Converte a chave para string
+    if (keyStr.startsWith('activity:')) {
+      activities.push(JSON.parse(value));
+    }
+  }
+
+  res.json(activities);
 };
 
 // Criar uma nova atividade (apenas admin)
@@ -162,22 +159,21 @@ exports.cancelActivity = async (req, res) => {
 exports.getMyActivities = async (req, res) => {
   const userId = req.user.id;
   const myActivities = [];
+  const iterator = db.iterator();
 
-  db.createReadStream()
-    .on('data', (data) => {
-      if (data.key.startsWith('activity:')) {
-        const activity = JSON.parse(data.value);
-        if (activity.participants.includes(userId)) {
-          myActivities.push(activity);
-        }
+  iterator.seek('activity:');  // Inicia a leitura das atividades
+
+  for await (const [key, value] of iterator) {
+    const keyStr = key.toString(); // Converte a chave para string
+    if (keyStr.startsWith('activity:')) {
+      const activity = JSON.parse(value);
+      if (activity.participants.includes(userId)) {
+        myActivities.push(activity);
       }
-    })
-    .on('end', () => {
-      res.json(myActivities);
-    })
-    .on('error', (err) => {
-      res.status(500).json({ message: 'Erro ao buscar atividades', error: err });
-    });
+    }
+  }
+
+  res.json(myActivities);
 };
 
 // Visualizar participantes de uma atividade (apenas admin)
