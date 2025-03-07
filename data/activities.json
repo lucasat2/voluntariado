@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "title": "Limpeza da Praça",
+    "description": "Ajude a limpar a praça central da cidade.",
+    "date": "2023-12-15",
+    "location": "Praça Central",
+    "maxParticipants": 20,
+    "participants": []
+  },
+  {
+    "id": "2",
+    "title": "Doação de Sangue",
+    "description": "Participe da campanha de doação de sangue.",
+    "date": "2023-12-20",
+    "location": "Hospital Municipal",
+    "maxParticipants": 30,
+    "participants": []
+  },
+  {
+    "id": "3",
+    "title": "Distribuição de Alimentos",
+    "description": "Ajude a distribuir alimentos para famílias carentes.",
+    "date": "2023-12-25",
+    "location": "Centro Comunitário",
+    "maxParticipants": 50,
+    "participants": []
+  }
+]
